@@ -1,7 +1,8 @@
 # Droplet Archiver
 
 The Droplet Archiver is a simple Node.JS based application that can be used as
-a central storage point for droplet packages within Cloud Foundry.
+a central storage point for droplet packages within
+[Cloud Foundry](http://github.com/cloudfoundry/vcap).
 
 In a stock Cloud Foundry application, droplets are stored and handled by the
 Cloud Controller, however this role can be more storage intensive over time
@@ -37,13 +38,20 @@ array of other `host:port` servers that should have droplets replicated to. It
 is ok to put its self in the list, as it will recognize it already has the
 droplet and continue on.
 
+## Usage within Cloud Foundry
+
+This is mainly TBD at this point. The Cloud Controller needs to be updated in
+a few places, mainly in `app/models/app_manager.rb` in `new_message` and
+`download_app_uri`, as well as `app/controllers/staging_controller.rb` in
+`upload_droplet_uri`.
+
 ## Endpoints
 
 The application responds to three simple endpoints:
 
 * `GET /droplets/:appid/:sha1` - Download a droplet
 * `POST /droplets/:appid/:sha1` - Upload a droplet
-* `POST /sync/:appid/:sha` - Used internally to sync droplets between nodes
+* `POST /sync/:appid/:sha1` - Used internally to sync droplets between nodes
 
 Whenever a droplet is uploaded, the file will be validated against the SHA1
 given and will be deleted if it doesn't match.
