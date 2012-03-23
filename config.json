@@ -1,0 +1,9 @@
+{
+  "port" : 3000,
+  "droplet_path" : "./droplets",
+  "credentials" : {
+    "username" : "user",
+    "password" : "pass"
+  },
+  "sync_hosts" : [ "127.0.0.1:3000", "127.0.0.1:4000" ]
+}

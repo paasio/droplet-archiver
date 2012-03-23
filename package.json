@@ -1,0 +1,25 @@
+{
+  "name": "paasio-droplet-archiver",
+  "version": "0.0.1",
+  "description": "A droplet storage service drop Cloud Foundry",
+  "author": "Ken Robertson <ken@paas.io>",
+  "dependencies": [
+    "async",
+    "coffee-script",
+    "express"
+  ],
+  "devDependencies": [
+    "chai",
+    "testosterone",
+    "mocha"
+  ],
+  "engine": "node >= 0.6.x",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec",
+    "build": "./node_modules/coffee-script/bin/coffee -c src -o lib"
+  },
+  "licenses": [{
+    "type": "Apache 2.0",
+    "url":  "http://www.apache.org/licenses/LICENSE-2.0"
+  }]
+}
